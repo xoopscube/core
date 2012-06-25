@@ -1,0 +1,4 @@
+core
+====
+
+XOOPS Cube Core
