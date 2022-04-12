@@ -6,7 +6,7 @@
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Minahito, 2008/10/12
  * @copyright  (c) 2005-2022 The XOOPSCube Project
- * @license    https://github.com/xoopscube/xcl/blob/master/BSD_Modified.txt
+ * @license    BSD-3-Clause
  * @brief      This class manages resources of each languages.
  * By requests of other components, this class loads files, or checks the existence of the specified
  * resource, or composes filepath to access real files. And, it manages some

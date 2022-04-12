@@ -6,7 +6,7 @@
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Minahito, 2008/11/16
  * @copyright  (c) 2005-2022 The XOOPSCube Project
- * @license    https://github.com/xoopscube/xcl/blob/master/BSD_Modified.txt
+ * @license    BSD-3-Clause
  * @brief      XCube_Ref class is an adapted reference pointer for XCube_Delegate.
  * 1) XCube_Ref : virtual function pointer
  * 2) XCube_Delegate : Simple mechanism for common delegation in XCube

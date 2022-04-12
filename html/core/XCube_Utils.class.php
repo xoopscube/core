@@ -6,7 +6,7 @@
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Minahito, 2008/10/12
  * @copyright  (c) 2005-2022 The XOOPSCube Project
- * @license    https://github.com/xoopscube/xcl/blob/master/BSD_Modified.txt
+ * @license    BSD-3-Clause
  * @brief      The utility class collecting static helper functions.
  */
 
@@ -41,22 +41,22 @@ class XCube_Utils {
 	 * @brief [Static] Formats string with special care for international.
 	 * @return string - Rendered string.
 	 *
-	 * This method renders string with modifiers and parameters. Parameters are .NET
-	 * style, not printf style. Because .NET style is clear.
+	 * This method renders a String with modifiers and parameters.
+	 * Parameters are .NET style, not printf style. Because .NET style is clear.
 	 *
 	 * \code
 	 *   XCube_Utils::formatString("{0} is {1}", "Time", "Money");
 	 *   // Result "Time is Money"
 	 * \endcode
 	 *
-	 * It's possible to add a modifier to parameter place holders with ':' mark.
+	 * It's possible to add a modifier to the parameter placeholders with ':' mark.
 	 *
 	 * \code
 	 *   XCube_Utils::formatString("{0:ucFirst} is {1:toLower}", "Time", "Money");
 	 *   // Result "Time is Money"
 	 * \endcode
 	 *
-	 * This feature is useful for automatic combined messages by message catalogs.
+	 * This function is useful for messages automatically combined by message catalogues.
 	 *
 	 * \par Modifiers
 	 *   -li ufFirst - Upper the first character of the parameter's value.
@@ -64,8 +64,8 @@ class XCube_Utils {
 	 *   -li toLower - Lower the parameter's value.
 	 *
 	 * @remarks
-	 *     This method doesn't implement the provider which knows how to format
-	 *     for each locales. So, this method is interim implement.
+	 *     This method does not implement or provide a formatted string for a given locale.
+	 *     This method is therefore provisionally implemented.
 	 */
 	public static function formatString() {
 		$arr = func_get_args();
@@ -110,16 +110,19 @@ class XCube_Utils {
 	 * @brief [Static] To encrypt strings by "DES-ECB".
 	 *
 	 * @param string $plain_text
-	 * @param string $key
+	 * @param string|null $key
 	 *
 	 * @return string - Encrypted string.
 	 */
-	public static function encrypt( $plain_text, $key = null ) {
+	public static function encrypt(string $plain_text, string $key = null ) {
 		if ( '' === $plain_text ) {
 			return $plain_text;
 		}
 
-		if ( null === $key || ! is_string( $key ) ) {
+        // @todo @gigamaster
+        // Condition is unnecessary because it is checked by '! is_string( $key )'
+        // if ( null === $key || ! is_string( $key ) ) {
+		if (! is_string( $key )) {
 			if ( ! defined( 'XOOPS_SALT' ) ) {
 				return $plain_text;
 			}
@@ -127,7 +130,8 @@ class XCube_Utils {
 		}
 		$key = substr( md5( $key ), 0, 8 );
 
-		if ( ! function_exists( 'openssl_encrypt' ) ) {
+        // Legacy backwards compatibility
+/*		if ( ! function_exists( 'openssl_encrypt' ) ) {
 			if ( ! extension_loaded( 'mcrypt' ) ) {
 				return $plain_text;
 			}
@@ -141,9 +145,9 @@ class XCube_Utils {
 
 			mcrypt_generic_deinit( $td );
 			mcrypt_module_close( $td );
-		} else {
+		} else {*/
 			$crypt_text = openssl_encrypt( $plain_text, 'DES-ECB', $key );
-		}
+//		}
 
 		return false === $crypt_text ? $plain_text : $crypt_text;
 	}
@@ -153,16 +157,19 @@ class XCube_Utils {
 	 * @brief [Static] To decrypt strings by "DES-ECB".
 	 *
 	 * @param string $crypt_text
-	 * @param string $key
+	 * @param string|null $key
 	 *
 	 * @return string - Decrypted string.
 	 */
-	public static function decrypt( $crypt_text, $key = null ) {
+	public static function decrypt(string $crypt_text, string $key = null ) {
 		if ( '' === $crypt_text ) {
 			return $crypt_text;
 		}
 
-		if ( null === $key || ! is_string( $key ) ) {
+        // @todo @gigamaster
+        // Condition is unnecessary because it is checked by '! is_string( $key )'
+        //if ( null === $key || ! is_string( $key ) ) {
+		if (! is_string( $key )) {
 			if ( ! defined( 'XOOPS_SALT' ) ) {
 				return $crypt_text;
 			}
@@ -170,24 +177,25 @@ class XCube_Utils {
 		}
 		$key = substr( md5( $key ), 0, 8 );
 
+        // Legacy backwards compatibility
 		// PHP < 5.4.0 can not use `OPENSSL_ZERO_PADDING`
-		if ( ! function_exists( 'openssl_decrypt' ) || PHP_VERSION_ID < 50400 ) {
-			if ( ! extension_loaded( 'mcrypt' ) ) {
-				return $crypt_text;
-			}
-			$td = mcrypt_module_open( 'des', '', 'ecb', '' );
-
-			if ( mcrypt_generic_init( $td, $key, 'iv_dummy' ) < 0 ) {
-				return $crypt_text;
-			}
-
-			$plain_text = mdecrypt_generic( $td, base64_decode( $crypt_text ) );
-
-			mcrypt_generic_deinit( $td );
-			mcrypt_module_close( $td );
-		} else {
+//		if ( ! function_exists( 'openssl_decrypt' ) || PHP_VERSION_ID < 50400 ) {
+//			if ( ! extension_loaded( 'mcrypt' ) ) {
+//				return $crypt_text;
+//			}
+//			$td = mcrypt_module_open( 'des', '', 'ecb', '' );
+//
+//			if ( mcrypt_generic_init( $td, $key, 'iv_dummy' ) < 0 ) {
+//				return $crypt_text;
+//			}
+//
+//			$plain_text = mdecrypt_generic( $td, base64_decode( $crypt_text ) );
+//
+//			mcrypt_generic_deinit( $td );
+//			mcrypt_module_close( $td );
+//		} else {
 			$plain_text = openssl_decrypt( $crypt_text, 'DES-ECB', $key, OPENSSL_ZERO_PADDING );
-		}
+//		}
 		// remove \0 padding for mcrypt encrypted text
 		$plain_text = rtrim( $plain_text, "\0" );
 		// remove pkcs#7 padding for openssl encrypted text if padding string found
@@ -242,4 +250,39 @@ class XCube_Utils {
 
 		return str_replace( $searches, $replaces, $subject );
 	}
+
+    /**
+     * Recursively delete directory /install
+     *
+     * @param string $delete_path
+     */
+    public function recursiveRemove( string $delete_path ) {
+        if (is_dir( $delete_path )) {
+            foreach (scandir( $delete_path ) as $entry ) {
+                if (!in_array( $entry, ['.', '..'], true )) {
+                    $this->recursiveRemove($delete_path . DIRECTORY_SEPARATOR . $entry);
+                }
+            }
+            rmdir( $delete_path );
+        } else {
+            unlink( $delete_path );
+        }
+    }
+
+    /**
+     * Preload Active
+     * Copy preload from directory /preload/disabled
+     *
+     * @param string $pre_disable
+     * @param string $pre_active
+     */
+    public function preloadActive(string $pre_disable, string $pre_active ) {
+
+        if( !copy( $pre_disable, $pre_active ) ) {
+            echo "File can't be copied! \n";
+        } else {
+            echo "File has been copied! \n";
+        }
+
+    }
 }

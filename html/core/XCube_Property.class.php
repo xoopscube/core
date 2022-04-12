@@ -6,7 +6,7 @@
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Minahito, 2008/10/12
  * @copyright  (c) 2005-2022 The XOOPSCube Project
- * @license    https://github.com/xoopscube/xcl/blob/master/BSD_Modified.txt
+ * @license    BSD-3-Clause
  * @brief      [Abstract] Defines an interface for the property class group.
  * XCube_PropertyInterface is designed to work in XCube_ActionForm and XCube_Service (further dev).
  * Therefore, only sub-classes of them should call constructors of XCube_Property classes.

@@ -6,7 +6,7 @@
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Minahito, 2008/10/12
  * @copyright  (c) 2005-2022 The XOOPSCube Project
- * @license    https://github.com/xoopscube/xcl/blob/master/BSD_Modified.txt
+ * @license    BSD-3-Clause
  * @brief      This is a target whom a render-system renders. This has a buffer and receives
  * a result of a render-system to the buffer. A developer can control rendering
  * BY using this class.

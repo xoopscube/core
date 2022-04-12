@@ -6,7 +6,7 @@
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Minahito, 2008/10/12
  * @copyright  (c) 2005-2022 The XOOPSCube Project
- * @license    https://github.com/xoopscube/xcl/blob/master/BSD_Modified.txt
+ * @license    BSD-3-Clause
  * @brief      [Abstract] Fetches input values, validates fetched values and passes them to an object.
  *
  *   This class fetches the input value from the request value through the
@@ -560,7 +560,7 @@ class XCube_FieldProperty {
 		$message = $this->mMessages[ $name ]['message'];
 
 		if ( isset( $this->mMessages[ $name ]['args'] ) ) {
-			// Use an unity method.
+			// Use a unity method.
 			$message = XCube_Utils::formatString( $message, $this->mMessages[ $name ]['args'] );
 		}
 
@@ -634,7 +634,7 @@ class XCube_DependClassFactory {
 	 * @internal
 	 * @brief [static] Gets a XCube_Validator object by the rule name (dependent name).
 	 */
-	public static function &factoryClass( $dependName ) {
+	public static function &factoryClass(string $dependName ) {
 		static $_cache;
 
 		if ( ! is_array( $_cache ) ) {

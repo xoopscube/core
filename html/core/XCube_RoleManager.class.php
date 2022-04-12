@@ -5,7 +5,7 @@
  * @version    XCL 2.3.1
  * @author     Minahito, 2008/10/12
  * @copyright  (c) 2005-2022 The XOOPSCube Project
- * @license    https://github.com/xoopscube/xcl/blob/master/BSD_Modified.txt
+ * @license    BSD-3-Clause
  * @brief      Provider class to manage role information with the store.
  */
 

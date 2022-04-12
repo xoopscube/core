@@ -6,7 +6,7 @@
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Minahito, 2008/11/20
  * @copyright  (c) 2005-2022 The XOOPSCube Project
- * @license    https://github.com/xoopscube/xcl/blob/master/BSD_Modified.txt
+ * @license    BSD-3-Clause
  * @brief      [FINAL CLASS] The root object which collects exchangeable managers.
  * This class offers the access course same as global variable for a logic in old mechanism.
  * This class does not let you depend on a main controller class name

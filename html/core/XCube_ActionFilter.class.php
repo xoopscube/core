@@ -8,7 +8,7 @@
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Minahito, 2008/10/12
  * @copyright  (c) 2005-2022 The XOOPSCube Project
- * @license    https://github.com/xoopscube/xcl/blob/master/BSD_Modified.txt
+ * @license    BSD-3-Clause
  * @brief      [Abstract] Used for initialization, post-processing and other purposes by the controller.
  *
  *    This class is chained and called by the initialization procedure of the controller class.

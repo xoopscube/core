@@ -6,7 +6,7 @@
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Minahito, 2008/10/12
  * @copyright  (c) 2005-2022 The XOOPSCube Project
- * @license    https://github.com/xoopscube/xcl/blob/master/BSD_Modified.txt
+ * @license    BSD-3-Clause
  * @brief      XCube_PermissionUtils
  * @remark     In some other languages, such as C, a void function can't be used in an expression, only as a statement.
  * IDEs and other tools can warn the user when the return value of a void function is being used.
