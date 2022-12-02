@@ -543,8 +543,8 @@ class XCube_DelegateManager {
  * @public
  * @brief Utility class which collects utility functions for delegates.
  *
- *    XCube_DelegateUtils::call("Delegate Name"[, fuction args...]); \n
- *    XCube_DelegateUtils::raiseEvent("Event Name"[, fuction params...]); \n
+ *    XCube_DelegateUtils::call("Delegate Name"[, function args...]); \n
+ *    XCube_DelegateUtils::raiseEvent("Event Name"[, function params...]); \n
  *    $string = XCube_DelegateUtils::applyStringFilter("Filter Name", $string, [, option params...]); \n
  */
 class XCube_DelegateUtils {
