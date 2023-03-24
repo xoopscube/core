@@ -7,7 +7,12 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [XCUBE CORE] - 2022-02-28
+## [XCUBE CORE] - 2023-03-23
+
+- Update PHP7 - PHP8 
+- XCL Package v2.3.3
+
+### [XCUBE CORE] - 2022-02-28
 
 - Refactoring for PHP7 
 - Package XCL 231
