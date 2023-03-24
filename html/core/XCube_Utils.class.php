@@ -1,11 +1,11 @@
 <?php
 /**
- * XCube_Utils.class.php
+ * /core/XCube_Utils.class.php
  * @package    XCube
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Minahito, 2008/10/12
- * @copyright  (c) 2005-2022 The XOOPSCube Project
+ * @copyright  (c) 2005-2023 The XOOPSCube Project
  * @license    BSD-3-Clause
  * @brief      The utility class collecting static helper functions.
  */
@@ -70,7 +70,7 @@ class XCube_Utils {
 	public static function formatString() {
 		$arr = func_get_args();
 
-		if ( 0 === count( $arr ) ) {
+		if (count($arr) === 0) {
 			return null;
 		}
 
@@ -115,12 +115,13 @@ class XCube_Utils {
 	 * @return string - Encrypted string.
 	 */
 	public static function encrypt(string $plain_text, string $key = null ) {
-		if ( '' === $plain_text ) {
+		if ($plain_text === '') {
 			return $plain_text;
 		}
 
         // @todo @gigamaster
         // TODO check if ondition is unnecessary because it is checked by '! is_string( $key )'
+        // if (! is_string( $key )) {
          if ( null === $key || ! is_string( $key ) ) {
 			if ( ! defined( 'XOOPS_SALT' ) ) {
 				return $plain_text;
@@ -167,6 +168,7 @@ class XCube_Utils {
 
         // @todo @gigamaster
         // Condition is unnecessary because it is checked by '! is_string( $key )'
+        // if (! is_string( $key )) {
         if ( null === $key || ! is_string( $key ) ) {
 			if ( ! defined( 'XOOPS_SALT' ) ) {
 				return $crypt_text;
