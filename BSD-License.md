@@ -1,6 +1,7 @@
 BSD 3-Clause License
 
-Copyright (c) 2023, XOOPSCUBE Project  
+Copyright (c) 2023, Authors  
+Copyright (c) 2005, XOOPSCUBE Project  
 Copyright (c) 2005, Kazuhisa MINATO
 
 Redistribution and use in source and binary forms, with or without
